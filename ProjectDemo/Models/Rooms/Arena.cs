@@ -8,26 +8,29 @@ using System.Threading.Tasks;
 
 namespace ProjectDemo.Models.Rooms
 {
-    class Arena
+    public abstract class Arena
     {
+        private string name;
 
         private Fighter warrior1;
  
         private Fighter warrior2;
 
         private Dice dice;
-   
-        public Arena(Fighter warrior1, Fighter warrior2, Dice dice)
+
+        public Fighter Warrior1 { get => warrior1; set => warrior1 = value; }
+        public Fighter Warrior2 { get => warrior2; set => warrior2 = value; }
+        public Dice Dice { get => dice; set => dice = value; }
+        public string Name { get => name; set => name = value; }
+
+        public Arena(Fighter warrior1, Fighter warrior2, Dice dice, string name)
         {
-            this.warrior1 = warrior1;
-            this.warrior2 = warrior2;
-            this.dice = dice;
+            this.Warrior1 = warrior1;
+            this.Warrior2 = warrior2;
+            this.Dice = dice;
+            this.Name = name;
         }
 
-        /// <summary>
-        /// Prints warrior info
-        /// </summary>
-        /// <param name="f">Warrior instance</param>
         private void PrintWarrior(Fighter f)
         {
             Console.WriteLine(f);
@@ -46,22 +49,14 @@ namespace ProjectDemo.Models.Rooms
             }
         }
 
-
         private void Render()
         {
             Console.Clear();
-            Console.WriteLine(@"
-            ______ _          _     _                    _ 
-            |  ___(_)        | |   | |                  | |
-            | |_   _ _ __ ___| |_  | |     _____   _____| |
-            |  _| | | '__/ __| __| | |    / _ \ \ / / _ \ |
-            | |   | | |  \__ \ |_  | |___|  __/\ V /  __/ |
-            \_|   |_|_|  |___/\__| \_____/\___| \_/ \___|_|                                              
-                                               ");
+            Console.WriteLine($"{this.Name}");
             Console.WriteLine("Warriors: \n");
-            PrintWarrior(warrior1);
+            PrintWarrior(Warrior1);
             Console.WriteLine();
-            PrintWarrior(warrior2);
+            PrintWarrior(Warrior2);
             Console.WriteLine();
         }
 
@@ -72,20 +67,19 @@ namespace ProjectDemo.Models.Rooms
             Thread.Sleep(500);
         }
 
-
-        public void Fight()
+        public virtual void Fight()
         {
             // The original warriors order
-            Fighter w1 = warrior1;
-            Fighter w2 = warrior2;
+            Fighter w1 = Warrior1;
+            Fighter w2 = Warrior2;
             Console.WriteLine("Welcome to Arena!");
-            Console.WriteLine("Today {0} will fight with {1}! \n", warrior1, warrior2);
+            Console.WriteLine("Today {0} will fight with {1}! \n", Warrior1, Warrior2);
             // swapping the warriors
-            bool warrior2Starts = (dice.Roll() <= dice.GetSidesCount() / 2);
+            bool warrior2Starts = (Dice.Roll() <= Dice.GetSidesCount() / 2);
             if (warrior2Starts)
             {
-                w1 = warrior2;
-                w2 = warrior1;
+                w1 = Warrior2;
+                w2 = Warrior1;
             }
             Console.WriteLine("The warrior {0} begins! \nLet the battle begin...", w1);
             Console.ReadKey();

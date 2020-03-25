@@ -41,11 +41,11 @@ namespace ProjectDemo.Models.Fighters
         }
 
         public List<Weapon> Weapons { get => weapons; private set => weapons = value; }
-        protected string Name { get => name; set => name = value; }
-        protected int Health { get => health; set => health = value; }
-        protected int MaxHealth { get => maxHealth; set => maxHealth = value; }
-        protected int Damage { get => damage; set => damage = value; }
-        protected int Defense { get => defense; set  => defense = value; }
+        public string Name { get => name; set => name = value; }
+        public int Health { get => health; set => health = value; }
+        public int MaxHealth { get => maxHealth; set => maxHealth = value; }
+        public int Damage { get => damage; set => damage = value; }
+        public int Defense { get => defense; set  => defense = value; }
         public Dice Dice { get => dice; set => dice = value; }
         public string Message { get => message; set => message = value; }
 

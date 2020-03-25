@@ -21,6 +21,7 @@ namespace ProjectDemo.Models.Fighters
             this.Defense = ScientistDefaultDefense;
         }
 
+
         public override void Defend(int hit)
         {            
 
@@ -30,7 +31,7 @@ namespace ProjectDemo.Models.Fighters
             {
                 base.Defend(hit);
             }
-            else if (scientistDice.Roll() % 3 == 0)
+            else if (scientistDice.Roll() % 7 == 0)
             {
                 this.MaxHealth *= 3;
                 this.Health = MaxHealth;
@@ -38,6 +39,7 @@ namespace ProjectDemo.Models.Fighters
                 Console.WriteLine((String.Format("Scientist {0} got luck and multiplied his health 3 times.", Name)));
                 Thread.Sleep(2000);
                 base.Defend(hit);
+                Console.ForegroundColor = ConsoleColor.Black;
             }
             else if (scientistDice.Roll() == this.Name.Length)
             {
@@ -46,6 +48,7 @@ namespace ProjectDemo.Models.Fighters
                 Console.WriteLine((String.Format("Scientist {0} got his lucky number and parried the hit.", Name)));
                 Thread.Sleep(2000);
                 base.Defend(hit);
+                Console.ForegroundColor = ConsoleColor.Black;
             }
             else
             {
@@ -56,6 +59,7 @@ namespace ProjectDemo.Models.Fighters
                     ,ScientistHealthLosingAmount));
                 Thread.Sleep(2000);
                 base.Defend(hit);
+                Console.ForegroundColor = ConsoleColor.Black;
             }
 
             

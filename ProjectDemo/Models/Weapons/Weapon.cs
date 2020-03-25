@@ -8,15 +8,17 @@ namespace ProjectDemo.Models.Weapons
 {
     public abstract class Weapon
     {
+        private const int DefaultWeaponLevel = 1;
+
         private int durability;
 
         private int attackPoints;
 
         private int level;
 
-        protected Weapon(int level)
+        protected Weapon()
         {
-            this.Level = level;
+            this.Level = DefaultWeaponLevel;
         }
 
         public int Level
@@ -61,6 +63,31 @@ namespace ProjectDemo.Models.Weapons
             }
         }
 
+        public void IncreaseLevel(int amount)
+        {
+            if (amount > 10)           
+                //Some magic numbers are always needed
+                throw new InvalidOperationException("Max weapon level is 10");
+            
 
+            if (amount <= 0)           
+                throw new InvalidOperationException("Number must be bigger than 0");
+
+
+            if (amount + this.Level >= 10)
+            {
+                this.Level = 10;
+            }
+            else
+            {
+                this.Level += amount;
+            }
+
+        }
+
+        private void IncreaseAttackPoints(int level)
+        {
+            this.AttackPoints *= level;
+        }
     }
 }

@@ -14,17 +14,17 @@ namespace ProjectDemo
     {
         static void Main(string[] args)
         {
-            Gladius gladius = new Gladius(1);
+            Gladius gladius = new Gladius();
 
             Dice dice = new Dice(1000);
-            Warrior warrior = new Warrior("Pesho", dice);
-            warrior.TakeWeapon(gladius);
+            Matador matador = new Matador("Pesho", dice);
+            matador.TakeWeapon(gladius);
 
             Scientist scientist = new Scientist("Jhon", dice);
 
-            Arena arena = new Arena(warrior, scientist, dice);
+            SkyStage skyStage = new SkyStage(matador, scientist, dice, "FirstLevel");
             // fight
-            arena.Fight();
+            skyStage.Fight();
             Console.ReadKey();
 
         }
