@@ -20,7 +20,7 @@ namespace ProjectDemo.Models.Rooms
 
         public override void Fight()
         {
-            Fighter[] fighters = new Fighter[2] { Warrior1, Warrior2 };
+            Fighter[] fighters = new Fighter[2] { Fighter1, Fighter2 };
 
             ///TODO: Check fighter type and do the modifications
             foreach (var fighter in fighters)
@@ -29,18 +29,21 @@ namespace ProjectDemo.Models.Rooms
                 {
                     fighter.Defense *= SkyMatadorDefenseMultiplier;
                     Console.WriteLine($"Matador {fighter.Name} multiplied his defense points by {SkyMatadorDefenseMultiplier}");
+                    Console.WriteLine();
                     Thread.Sleep(1000);
                 }
                 else if (fighter is Warrior)
                 {
                     fighter.Health *= SkyWarriorHealthIncreaser;
                     Console.WriteLine($"Warrior {fighter.Name} multiplied his health {SkyWarriorHealthIncreaser} times");
+                    Console.WriteLine();
                     Thread.Sleep(1000);
                 }
                 else if (fighter is Prisoner)
                 {
                     fighter.Health /= SkyPrisonerHealthDecreaser;
                     Console.WriteLine($"The health of prisoner {fighter.Name} has been decreased {SkyPrisonerHealthDecreaser} times");
+                    Console.WriteLine();
                     Thread.Sleep(1000);
                 }
 

@@ -11,8 +11,8 @@ namespace ProjectDemo.Models.Weapons
         private const int DefaultGladiusAttackPoints = 700;
         private const int DefaultGladiusDurability = 250;
 
-        public Gladius(int level)
-            : base(level)
+        public Gladius()
+            : base()
         {
             this.AttackPoints = DefaultGladiusAttackPoints;
             this.Durability = DefaultGladiusDurability;

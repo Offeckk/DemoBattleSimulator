@@ -2,6 +2,7 @@
 using ProjectDemo.Models.Fighters;
 using ProjectDemo.Models.Rooms;
 using ProjectDemo.Models.Weapons;
+using ProjectDemo.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +15,23 @@ namespace ProjectDemo
     {
         static void Main(string[] args)
         {
-            Gladius gladius = new Gladius();
 
-            Dice dice = new Dice(1000);
-            Matador matador = new Matador("Pesho", dice);
-            matador.TakeWeapon(gladius);
+            // Dice dice = new Dice(1000);
 
-            Scientist scientist = new Scientist("Jhon", dice);
+            // Longsword longsword = new Longsword();
 
-            SkyStage skyStage = new SkyStage(matador, scientist, dice, "FirstLevel");
+
+            //Scientist scientist = new Scientist("Nenormalen Boqn", dice);
+
+            // Prisoner prisoner = new Prisoner("Gaco", dice);
+
+            //IceStage iceStage = new IceStage(scientist, prisoner, dice, "Boqn Fight");
+
             // fight
-            skyStage.Fight();
-            Console.ReadKey();
+            // iceStage.Fight();
+            //Console.ReadKey();
+
+            Display display = new Display();
 
         }
     }

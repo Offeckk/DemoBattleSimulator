@@ -18,13 +18,6 @@ namespace ProjectDemo.Models.Rooms
 
         public override void Fight()
         {
-            Fighter[] fighters = new Fighter[2] { Warrior1, Warrior2 };
-
-            if (Warrior2.Weapons.Count != 0)
-            {
-                Warrior2.Weapons.ForEach(w => w.IncreaseLevel(SecondWarriorWeaponAdvantage));
-            }
-
             base.Fight();
         }
     }

@@ -11,8 +11,8 @@ namespace ProjectDemo.Models.Weapons
         private const int DefaultLongswordAttackPoints = 900;
         private const int DefaultLongswordDurability = 300;
 
-        public Longsword(int level)
-            : base(level)
+        public Longsword()
+            : base()
         {
             this.AttackPoints = DefaultLongswordAttackPoints;
             this.Durability = DefaultLongswordDurability;

@@ -11,8 +11,8 @@ namespace ProjectDemo.Models.Weapons
         private const int DefaultKnifeAttackPoints = 375;
         private const int DefaultKnifeDurability = 250;
 
-        public Knife(int level) 
-            : base(level)
+        public Knife() 
+            : base()
         {
             this.AttackPoints = DefaultKnifeAttackPoints;
             this.Durability = DefaultKnifeDurability;

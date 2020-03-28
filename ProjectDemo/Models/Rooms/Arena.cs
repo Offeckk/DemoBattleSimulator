@@ -18,15 +18,15 @@ namespace ProjectDemo.Models.Rooms
 
         private Dice dice;
 
-        public Fighter Warrior1 { get => warrior1; set => warrior1 = value; }
-        public Fighter Warrior2 { get => warrior2; set => warrior2 = value; }
+        public Fighter Fighter1 { get => warrior1; set => warrior1 = value; }
+        public Fighter Fighter2 { get => warrior2; set => warrior2 = value; }
         public Dice Dice { get => dice; set => dice = value; }
         public string Name { get => name; set => name = value; }
 
         public Arena(Fighter warrior1, Fighter warrior2, Dice dice, string name)
         {
-            this.Warrior1 = warrior1;
-            this.Warrior2 = warrior2;
+            this.Fighter1 = warrior1;
+            this.Fighter2 = warrior2;
             this.Dice = dice;
             this.Name = name;
         }
@@ -54,9 +54,9 @@ namespace ProjectDemo.Models.Rooms
             Console.Clear();
             Console.WriteLine($"{this.Name}");
             Console.WriteLine("Warriors: \n");
-            PrintWarrior(Warrior1);
+            PrintWarrior(Fighter1);
             Console.WriteLine();
-            PrintWarrior(Warrior2);
+            PrintWarrior(Fighter2);
             Console.WriteLine();
         }
 
@@ -70,16 +70,16 @@ namespace ProjectDemo.Models.Rooms
         public virtual void Fight()
         {
             // The original warriors order
-            Fighter w1 = Warrior1;
-            Fighter w2 = Warrior2;
+            Fighter w1 = Fighter1;
+            Fighter w2 = Fighter2;
             Console.WriteLine("Welcome to Arena!");
-            Console.WriteLine("Today {0} will fight with {1}! \n", Warrior1, Warrior2);
+            Console.WriteLine("Today {0} will fight with {1}! \n", Fighter1, Fighter2);
             // swapping the warriors
             bool warrior2Starts = (Dice.Roll() <= Dice.GetSidesCount() / 2);
             if (warrior2Starts)
             {
-                w1 = Warrior2;
-                w2 = Warrior1;
+                w1 = Fighter2;
+                w2 = Fighter1;
             }
             Console.WriteLine("The warrior {0} begins! \nLet the battle begin...", w1);
             Console.ReadKey();

@@ -21,41 +21,41 @@ namespace ProjectDemo.Models.Rooms
 
         public override void Fight()
         {
-            if (Warrior1.GetType() == typeof(Matador))
+            if (Fighter1.GetType() == typeof(Matador))
             {
-                if (Warrior1.Weapons.Count == 0)
+                if (Fighter1.Weapons.Count == 0)
                 {
-                    Warrior1.Damage *= LavaDamageMultiplier;
-                    Console.WriteLine($"The lava area multiplies the fist attack of {Warrior1.Name} by {LavaDamageMultiplier}");
+                    Fighter1.Damage *= LavaDamageMultiplier;
+                    Console.WriteLine($"The lava area multiplies the fist attack of {Fighter1.Name} by {LavaDamageMultiplier}");
                     Thread.Sleep(2000);
                 }
                 else
                 {
-                    foreach (var weapon in Warrior1.Weapons)
+                    foreach (var weapon in Fighter1.Weapons)
                     {
                         weapon.Level = MatadorLavaWeaponIncreaser;
                     }
-                    Console.WriteLine($"The lava area increases the level of {Warrior1.Name}'s weapons by {MatadorLavaWeaponIncreaser}");
+                    Console.WriteLine($"The lava area increases the level of {Fighter1.Name}'s weapons by {MatadorLavaWeaponIncreaser}");
                     Thread.Sleep(2000);
                 }
                
             }
 
-            if (Warrior2.GetType() == typeof(Matador))
+            if (Fighter2.GetType() == typeof(Matador))
             {
-                if (Warrior2.Weapons.Count == 0)
+                if (Fighter2.Weapons.Count == 0)
                 {                   
-                    Warrior1.Damage *= LavaDamageMultiplier;
-                    Console.WriteLine($"The lava area multiplies the fist attack of {Warrior2.Name} by {LavaDamageMultiplier}");
+                    Fighter1.Damage *= LavaDamageMultiplier;
+                    Console.WriteLine($"The lava area multiplies the fist attack of {Fighter2.Name} by {LavaDamageMultiplier}");
                     Thread.Sleep(2000);
                 }
                 else
                 {
-                    foreach (var weapon in Warrior2.Weapons)
+                    foreach (var weapon in Fighter2.Weapons)
                     {                 
                         weapon.Level = MatadorLavaWeaponIncreaser;                   
                     }
-                    Console.WriteLine($"The lava area increases the level of {Warrior2.Name}'s weapons by {MatadorLavaWeaponIncreaser}");
+                    Console.WriteLine($"The lava area increases the level of {Fighter2.Name}'s weapons by {MatadorLavaWeaponIncreaser}");
                     Thread.Sleep(2000);
                 }
 

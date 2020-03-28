@@ -15,7 +15,7 @@ namespace ProjectDemo.Models.Rooms
         private const int IceWarriorWeaponIncreaser = 3;
         private const int IcePrisonerHealthIncreaser = 3;
         private const int IcePrisonerDefenseIncreaser = 3;
-        private const int IceScientistDefenseIncreaser = 10;
+        private const int IceScientistDefenseIncreaser = 4;
 
 
 
@@ -26,7 +26,7 @@ namespace ProjectDemo.Models.Rooms
 
         public override void Fight()
         {
-            Fighter[] fighters = new Fighter[2] { Warrior1, Warrior2 };
+            Fighter[] fighters = new Fighter[2] { Fighter1, Fighter2 };
 
             ///TODO: Check fighter type and do the modifications
             foreach (var fighter in fighters)
@@ -34,16 +34,19 @@ namespace ProjectDemo.Models.Rooms
                 if (fighter is Matador)
                 {
                     fighter.Weapons.ForEach(w => w.IncreaseLevel(IceMatadorWeaponIncreaser));
-                    fighter.Health /= IceMatadorHealthDecreaser;
+                    fighter.MaxHealth /= IceMatadorHealthDecreaser;
+                    fighter.Health = fighter.MaxHealth;
                 }
                 else if (fighter is Warrior)
                 {
                     fighter.Weapons.ForEach(w => w.IncreaseLevel(IceWarriorWeaponIncreaser));
-                    fighter.Health /= IceWarriorHealthIncreaser;
+                    fighter.MaxHealth /= IceWarriorHealthIncreaser;
+                    fighter.Health = fighter.MaxHealth;
                 }
                 else if (fighter is Prisoner)
                 {
-                    fighter.Health *= IcePrisonerHealthIncreaser;
+                    fighter.MaxHealth *= IcePrisonerHealthIncreaser;
+                    fighter.Health = fighter.MaxHealth;
                     fighter.Defense *= IcePrisonerDefenseIncreaser;
                 }
                 else if (fighter is Scientist)
