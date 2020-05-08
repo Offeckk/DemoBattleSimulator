@@ -1,4 +1,5 @@
-﻿using ProjectDemo.Models;
+﻿using ProjectDemo.Controllers;
+using ProjectDemo.Models;
 using ProjectDemo.Models.Fighters;
 using ProjectDemo.Models.Rooms;
 using ProjectDemo.Models.Weapons;
@@ -31,7 +32,9 @@ namespace ProjectDemo
             // iceStage.Fight();
             //Console.ReadKey();
 
-            Display display = new Display();
+            Controller controller = new Controller();
+
+            controller.Start();
 
         }
     }

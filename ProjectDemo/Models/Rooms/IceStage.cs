@@ -7,7 +7,7 @@ using ProjectDemo.Models.Fighters;
 
 namespace ProjectDemo.Models.Rooms
 {
-    public class IceStage : Arena
+    public class IceStage : Stage
     {
         private const int IceMatadorWeaponIncreaser = 2;
         private const int IceMatadorHealthDecreaser = 2;
@@ -19,8 +19,8 @@ namespace ProjectDemo.Models.Rooms
 
 
 
-        public IceStage(Fighter warrior1, Fighter warrior2, Dice dice, string name) 
-            : base(warrior1, warrior2, dice, name)
+        public IceStage(Fighter warrior1, Fighter warrior2, Dice dice) 
+            : base(warrior1, warrior2, dice)
         {
         }
 

@@ -8,14 +8,14 @@ using ProjectDemo.Models.Fighters;
 
 namespace ProjectDemo.Models.Rooms
 {
-    public class LavaStage : Arena
+    public class LavaStage : Stage
     {
 
         private const int LavaDamageMultiplier = 2;
         private const int MatadorLavaWeaponIncreaser = 2;
 
-        public LavaStage(Fighter warrior1, Fighter warrior2, Dice dice, string name)
-            : base(warrior1, warrior2, dice, name)
+        public LavaStage(Fighter fighter1, Fighter fighter2, Dice dice)
+            : base(fighter1, fighter2, dice)
         {}
 
 

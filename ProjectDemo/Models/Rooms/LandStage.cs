@@ -7,12 +7,12 @@ using ProjectDemo.Models.Fighters;
 
 namespace ProjectDemo.Models.Rooms
 {
-    public class LandStage : Arena
+    public class LandStage : Stage
     {
         private const int SecondWarriorWeaponAdvantage = 1;
 
-        public LandStage(Fighter warrior1, Fighter warrior2, Dice dice, string name)
-            : base(warrior1, warrior2, dice, name)
+        public LandStage(Fighter fighter1, Fighter fighter2, Dice dice)
+            : base(fighter1, fighter2, dice)
         {
         }
 

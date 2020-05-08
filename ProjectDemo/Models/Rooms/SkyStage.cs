@@ -8,14 +8,14 @@ using ProjectDemo.Models.Fighters;
 
 namespace ProjectDemo.Models.Rooms
 {
-    public class SkyStage : Arena
+    public class SkyStage : Stage
     {
         private const int SkyMatadorDefenseMultiplier = 3;
         private const int SkyWarriorHealthIncreaser = 3;
         private const int SkyPrisonerHealthDecreaser = 3;
 
-        public SkyStage(Fighter warrior1, Fighter warrior2, Dice dice, string name) 
-            : base(warrior1, warrior2, dice, name)
+        public SkyStage(Fighter fighter1 , Fighter fighter2, Dice dice) 
+            : base(fighter1, fighter2, dice)
         {}
 
         public override void Fight()

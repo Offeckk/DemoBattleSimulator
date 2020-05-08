@@ -50,7 +50,7 @@
     <Compile Include="Models\Fighters\Prisoner.cs" />
     <Compile Include="Models\Fighters\Scientist.cs" />
     <Compile Include="Models\Fighters\Warrior.cs" />
-    <Compile Include="Models\Rooms\Arena.cs" />
+    <Compile Include="Models\Rooms\Stage.cs" />
     <Compile Include="Models\Rooms\IceStage.cs" />
     <Compile Include="Models\Rooms\LandStage.cs" />
     <Compile Include="Models\Rooms\LavaStage.cs" />
