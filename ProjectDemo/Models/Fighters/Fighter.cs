@@ -41,11 +41,23 @@ namespace ProjectDemo.Models.Fighters
         }
 
         public List<Weapon> Weapons { get => weapons; private set => weapons = value; }
-        public string Name { get => name; set => name = value; }
+        public string Name
+        {
+            get => name;
+
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Name cannot be null or white space!");
+                }
+                this.name = value;
+            }
+        }
         public int Health { get => health; set => health = value; }
         public int MaxHealth { get => maxHealth; set => maxHealth = value; }
         public int Damage { get => damage; set => damage = value; }
-        public int Defense { get => defense; set  => defense = value; }
+        public int Defense { get => defense; set => defense = value; }
         public Dice Dice { get => dice; set => dice = value; }
         public string Message { get => message; set => message = value; }
 
@@ -92,7 +104,7 @@ namespace ProjectDemo.Models.Fighters
 
             //Initialize weapons as damage
             int totalWeaponDamage = 0;
-            
+
             //Check if there is weapon
             if (this.Weapons.Count == 0)
             {
@@ -119,7 +131,7 @@ namespace ProjectDemo.Models.Fighters
             {
                 hit = totalWeaponDamage + dice.Roll();
             }
-            
+
             SetMessage(String.Format("{0} attacks with {1} hp hit", name, hit));
             enemy.Defend(hit);
         }
@@ -129,11 +141,11 @@ namespace ProjectDemo.Models.Fighters
             int injury = hit - (defense + dice.Roll());
             if (injury > 0) // Injured
             {
-                health -= injury;
+                Health -= injury;
                 message = String.Format("{0} got an injury of {1} hp", name, injury);
                 if (health <= 0)
                 {
-                    health = 0;
+                    Health = 0;
                     message += " and died";
                 }
             }

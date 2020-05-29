@@ -85,7 +85,7 @@ namespace ProjectDemo.Models.Weapons
 
         }
 
-        private void IncreaseAttackPoints(int level)
+        public void IncreaseAttackPoints(int level)
         {
             this.AttackPoints *= level;
         }

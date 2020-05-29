@@ -1,10 +1,12 @@
-﻿using ProjectDemo.Models;
+﻿using ProjectDemo.Database;
+using ProjectDemo.Models;
 using ProjectDemo.Models.Fighters;
 using ProjectDemo.Models.Rooms;
 using ProjectDemo.Models.Weapons;
 using ProjectDemo.Views;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +21,12 @@ namespace ProjectDemo.Controllers
         private Fighter[] fighters;
         private List<string> firstFigherWeapons;
         private List<string> secondFigherWeapons;
+        private User user;
 
         public Controller()
         {
             display = new Display();
+            this.User = new User(display.Username, display.Password);
 
             fighters = new Fighter[2];
             firstFigherWeapons = display.FirstFighterWeapons;
@@ -32,6 +36,7 @@ namespace ProjectDemo.Controllers
         //Dice with sides equal to 25% of lowest Figther Type health
         public Dice Dice { get => dice = new Dice(750); }
         public Stage Stage { get => stage; private set => stage = value; }
+        public User User { get => user; private set => user = value; }
 
         public void Start()
         {
@@ -60,7 +65,6 @@ namespace ProjectDemo.Controllers
                 }
             }
             //2nd fighter
-
             foreach (var weapon in secondFigherWeapons)
             {
                 try
@@ -88,6 +92,7 @@ namespace ProjectDemo.Controllers
             }
 
             Stage.Fight();
+            AddBattle();
 
         }
 
@@ -190,6 +195,25 @@ namespace ProjectDemo.Controllers
 
         }
 
+        private void AddBattle()
+        {
+            this.User.AddBattle();
 
+            SqlConnection connection = new SqlConnection(Connection.CONNECTION_STRING);
+            connection.Open();
+
+            using (connection)
+            {
+                string sql =
+                    $"UPDATE Users SET Battles = @battles WHERE Username = @username";
+
+                SqlCommand cmd = new SqlCommand(sql, connection);
+
+                cmd.Parameters.AddWithValue("@battles", this.User.Battles);
+                cmd.Parameters.AddWithValue("@username", this.User.Username);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectDemo.Models.Fighters
 {
-    class Prisoner : Fighter
+    public class Prisoner : Fighter
     {
         private const int PrisonerDefaultHealth = 10000;
         private const int PrisonerDefaultDefense = 0;
