@@ -17,23 +17,7 @@ namespace ProjectDemo
         static void Main(string[] args)
         {
 
-            // Dice dice = new Dice(1000);
-
-            // Longsword longsword = new Longsword();
-
-
-            //Scientist scientist = new Scientist("Nenormalen Boqn", dice);
-
-            // Prisoner prisoner = new Prisoner("Gaco", dice);
-
-            //IceStage iceStage = new IceStage(scientist, prisoner, dice, "Boqn Fight");
-
-            // fight
-            // iceStage.Fight();
-            //Console.ReadKey();
-
             Controller controller = new Controller();
-
             controller.Start();
 
         }

@@ -59,5 +59,6 @@ namespace Tests
 
             Assert.AreNotEqual(5000, result, "Fighter does not take damage when it's attacked");
         }
+
     }
 }
